@@ -1,7 +1,7 @@
 const TelegramBot = require('node-telegram-bot-api');
 const math = require('mathjs');
 
-const TOKEN = '6585566858:AAEd07bhBdBdW73mBvVkULATblSoqQzXOwQ';
+const TOKEN = process.env.TOKEN;
 
 // Create a new instance of the Telegram Bot
 const bot = new TelegramBot(TOKEN, { polling: true });
@@ -12,9 +12,11 @@ bot.onText(/\/start/, (msg) => {
     bot.sendMessage(chatId, 'Hello! I\'m the bot of the group Oasis. Type /help to see available commands.');
 });
 
+const helpMessage = 'Available commands: \n' + '/start - Start the bot\n' + '/help - Show this help message\n' + '/calculate - Calculate a mathematical expression';
+
 bot.onText(/\/help/, (msg) => {
     const chatID = msg.chat.id;
-    bot.sendMessage(chatID, 'What kind of help do you need?');
+    bot.sendMessage(chatID, helpMessage);
 });
 
 const badWordsList = ['lee', 'kmkl', 'mmsp', 'fuck', 'nigga', 'shit'];
