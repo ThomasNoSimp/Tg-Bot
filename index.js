@@ -19,6 +19,7 @@ bot.onText(/\/help/, (msg) => {
     bot.sendMessage(chatID, helpMessage);
 });
 
+
 const badWordsList = ['lee', 'kmkl', 'mmsp', 'fuck', 'nigga', 'shit'];
 var warnings = 0;
 
